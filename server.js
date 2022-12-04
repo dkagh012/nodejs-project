@@ -10,22 +10,35 @@ const data = fs.readFileSync('./database.json');
 const conf = JSON.parse(data);
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
-    host: conf.host,
-    user: conf.user,
-    password: conf.password,
-    port: conf.port,
-    database: conf.database
-});
-connection.connect();
+
+const db = mysql.createConnection({
+    host: "management-tutorial1.cilun0bhc3yp.ap-northeast-2.rds.amazonaws.com",
+    user: "roiot",
+    password: "sd123123",
+    database: "management",
+    port: '3306',
+  });
+
+
+// const connection = mysql.createConnection({
+//     host: conf.host,
+//     user: conf.user,
+//     password: conf.password,
+//     port: conf.port,
+//     database: conf.database
+// });
+// connection.connect();
+
+db.connect();
 
 app.get('/api/customers', (req, res) => {
-    connection.query(
-      "SELECT * FROM management.CUSTOMER",
+    db.query(
+      "SELECT * FROM CUSTOMER",
       (err, rows, fields) => {
           res.send(rows);
       }  
     );
 });
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
