@@ -1,7 +1,7 @@
  {
     "host":"127.0.0.1",
     "user":"roiot",
-    "passowrd":"sd123123",
+    "password":"sd123123",
     "port":"3306",
     "database" : "management"
  }
