@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -18,6 +26,12 @@ const db = mysql.createConnection({
   database: "management",
   port: '3306',
 });
+
+
+
+
+
+
 
 
 // const connection = mysql.createConnection({
